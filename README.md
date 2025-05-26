@@ -12,7 +12,7 @@ Expiration: Custom # enter date 1 year away
 Select Scopes: repo
 Generate Token
 ```
-* If running https add pat token to .git/config
+* Add pat token to .git/config
 ```
 [remote "origin"]
 	url = https://markday1962:<add-pat-token-here>markday1962/python-app.git
