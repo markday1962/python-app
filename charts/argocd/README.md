@@ -31,3 +31,28 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 kubectl get ing -n argocd
 ```
+
+### To enable http access and prevent HTTPS redirect
+Add annotation to values file
+```
+server:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    enabled: true
+    ingressClassName: nginx
+    tls: true
+```
+Apply changes
+```
+helm upgrade --install argocd argo/argo-cd -n argocd --create-namespace -f values.yaml
+```
+Check for change
+```
+kubectl -n argocd get ing -n argocd -o yaml
+```
+
+### Get Initial Admin password
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
