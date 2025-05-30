@@ -18,3 +18,14 @@ Generate Token
 	url = https://markday1962:<add-pat-token-here>markday1962/python-app.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 ```
+
+
+### Github Actions
+https://github.com/docker/build-push-action
+
+* Create a Docker hub access token
+https://docs.docker.com/security/for-developers/access-tokens/
+Account settings -> Personnel Access Tokens -> Generate new token
+
+* Add Actions secrets and variables
+Repo -> Settings -> Secrets and Variables -> Repository secrets -> New repository secret
